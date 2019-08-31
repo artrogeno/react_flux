@@ -1,0 +1,22 @@
+// Reset
+$body-bg: #0B0A0D;
+$body-color: rgb(255, 255, 255);
+
+$theme-colors: (
+  "green-flux": #5FD462
+);
+
+@import "./node_modules/bootstrap/scss/bootstrap.scss";
+
+html, body {
+  min-height: 100vh;
+  max-height: 100%;
+}
+// App
+.bg-dark-nav {
+  background: #1f1f1f;
+}
+
+.container-app {
+  padding-top: 4rem;
+}
