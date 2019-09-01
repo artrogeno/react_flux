@@ -1,9 +1,12 @@
+// Variaables
+$green-flux: #5FD462;
+
 // Reset
 $body-bg: #0B0A0D;
 $body-color: rgb(255, 255, 255);
 
 $theme-colors: (
-  "green-flux": #5FD462
+  "green-flux": $green-flux
 );
 
 @import "./node_modules/bootstrap/scss/bootstrap.scss";
@@ -18,5 +21,10 @@ html, body {
 }
 
 .container-app {
-  padding-top: 4rem;
+  padding-top: 3.4rem;
+
+}
+
+.nav-active-link {
+  color: $green-flux !important;
 }

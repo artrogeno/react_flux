@@ -4,14 +4,24 @@ import { Navbar, NavbarBrand, Nav, NavItem} from 'reactstrap'
 
 const Header = () => (
   <Navbar color="dark-nav" dark expand="md" className="shadow-sm fixed-top">
-    <NavbarBrand tag="div" className="text-green-flux font-weight-bold">
+    <NavbarBrand tag="div" className="font-weight-bold">
       React{' '}
-      <span className="text-white">Flux</span>
+      <span className="text-green-flux">Flux</span>
     </NavbarBrand>
-    <Nav navbar className="ml-auto">
+    <Nav className="ml-auto" navbar>
       <NavItem>
-        <NavLink className="nav-link" exact to="/">
+        <NavLink activeClassName="nav-active-link" className="nav-link" exact to="/">
           Home
+        </NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink activeClassName="nav-active-link" className="nav-link" to="/about">
+          About
+        </NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink activeClassName="nav-active-link" className="nav-link" to="/courses">
+          Courses
         </NavLink>
       </NavItem>
     </Nav>
