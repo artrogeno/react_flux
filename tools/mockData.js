@@ -72,9 +72,9 @@ const courses = [
 ];
 
 const authors = [
-  { id: 1, name: "Cory House" },
-  { id: 2, name: "Scott Allen" },
-  { id: 3, name: "Dan Wahlin" }
+  { id: 1, name: "Arthur Costa" },
+  { id: 2, name: "Joaquim do Nascimento" },
+  { id: 3, name: "Artrogeno" }
 ];
 
 const newCourse = {

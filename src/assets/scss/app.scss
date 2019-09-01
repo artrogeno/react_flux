@@ -1,16 +1,13 @@
 // Variaables
-$green-flux: #5FD462;
+@import "variables";
 
-// Reset
-$body-bg: #0B0A0D;
-$body-color: rgb(255, 255, 255);
-
-$theme-colors: (
-  "green-flux": $green-flux
-);
-
+// BOOTSTRAP
 @import "./node_modules/bootstrap/scss/bootstrap.scss";
 
+// REACT TOAST
+@import "./node_modules/react-toastify/scss/main";
+
+// APP
 html, body {
   min-height: 100vh;
   max-height: 100%;
@@ -28,3 +25,4 @@ html, body {
 .nav-active-link {
   color: $green-flux !important;
 }
+

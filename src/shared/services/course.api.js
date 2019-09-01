@@ -12,10 +12,8 @@ export const getCourses = async () => {
 export const getCourseBySlug = async (slug) => {
   try {
     const { data } = await axios.get(`/courses/?slug=${slug}`)
-    return data.json().then(courses => {
-      if (courses.length !== 1) throw new Error (`Course not found: ${slug}`)
-      return courses[0]
-    })
+    if (data.length !== 1) throw new Error (`Course not found: ${slug}`)
+    return data[0]
   } catch (error) {
     console.log(error)
   }

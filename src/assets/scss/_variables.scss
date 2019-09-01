@@ -1,0 +1,33 @@
+// RESET
+$green-flux: #5FD462;
+
+
+// TOASTFY
+$rt-namespace: 'Toastify';
+$rt-toast-width: 320px !default;
+$rt-toast-background: #ffffff !default;
+$rt-toast-min-height: 64px !default;
+$rt-toast-max-height: 800px !default;
+
+$rt-color-default: #fff !default;
+$rt-color-info: #0060a0 !default;
+$rt-color-success: #167F19 !default;
+$rt-color-warning: #b99503 !default;
+$rt-color-error: #ac1302 !default;
+
+$rt-text-color-default: rgb(95, 95, 95) !default;
+
+$rt-color-progress-default: linear-gradient(to right, #167F19, #00aeff, #0060a0, #2188b4, #302e7e, #bb0022) !default;
+
+$rt-mobile: "only screen and (max-width : 480px)" !default;
+$rt-font-family: sans-serif !default;
+$rt-z-index: 9999 !default;
+
+// BOOTSTRAP
+$body-bg: #0B0A0D;
+$body-color: rgb(255, 255, 255);
+
+$theme-colors: (
+  "green-flux": $green-flux
+);
+
