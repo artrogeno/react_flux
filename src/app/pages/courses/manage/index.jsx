@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { toast } from 'react-toastify'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col } from 'reactstrap'
 
-import * as courseApi from 'shared/services/course.api'
+import courseStore from '../../../../shared/store/courseStore'
+import * as courseActions from '../../../../shared/actions/course'
 import CourseForm from '../form'
 
 const ManageCourse = props => {
   const [errors,  setErros] = useState({})
+  const [courses, setCourses] = useState(courseStore.getCourses())
   const [course, setCourse] = useState({
     id: null,
     slug: '',
@@ -40,28 +41,27 @@ const ManageCourse = props => {
       return
     }
     try {
-      await courseApi.saveCourse(course)
+      await courseActions.saveCourse(course)
       props.history.push('/courses')
-      toast.success('Course saved.')
     } catch (error) {
       console.log(error)
-      toast.error('Course not saved.')
     }
   }
 
-  const findCourse = async (slug) => {
-    if (slug) {
-      const _course = await courseApi.getCourseBySlug(slug)
-      setCourse(_course)
-    }
+  const onChange = () => {
+    setCourses(courseStore.getCourses())
   }
 
   useEffect(() => {
+    courseStore.addChangeListener(onChange)
     const slug = props.match.params.slug
-    if (slug) {
-      findCourse(slug)
+    if (courses.length === 0) {
+      courseActions.loadCourses()
+    } else if (slug) {
+      setCourse(courseStore.getCourseBySlug(slug))
     }
-  }, [props.match.params.slug])
+    return () => courseStore.removeChangeListener(onChange)
+  }, [courses.length, props.match.params.slug])
 
   return (
     <Container>

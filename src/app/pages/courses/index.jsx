@@ -2,19 +2,21 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col } from 'reactstrap'
 
-import { getCourses } from 'shared/services/course.api'
+import courseStore from '../../../shared/store/courseStore'
+import { loadCourses, deleteCourse } from '../../../shared/actions/course'
 import CourseList from './list'
 
 const Courses = () => {
-  const [courses, setCourses] = useState([])
+  const [courses, setCourses] = useState(courseStore.getCourses())
 
-  const getCousesApi = async () => {
-    const _courses = await getCourses()
-    setCourses(_courses)
+  const onChange = () => {
+    setCourses(courseStore.getCourses())
   }
 
   useEffect(() => {
-    getCousesApi()
+    courseStore.addChangeListener(onChange)
+    if (courseStore.getCourses().length === 0) loadCourses()
+    return () => courseStore.removeChangeListener(onChange)
   }, [])
 
   return (
@@ -29,7 +31,7 @@ const Courses = () => {
           </p>
         </Col>
         <Col md={12}>
-          <CourseList courses={courses} />
+          <CourseList courses={courses} deleteCourse={deleteCourse} />
         </Col>
       </Row>
     </Container>
